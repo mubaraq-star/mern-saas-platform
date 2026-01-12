@@ -1,0 +1,52 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies (client)
+        working-directory: ./client
+        run: npm install
+
+      - name: Install dependencies (server)
+        working-directory: ./server
+        run: npm install
+
+      - name: Run tests (client)
+        working-directory: ./client
+        run: npm test -- --watchAll=false
+
+      - name: Run tests (server)
+        working-directory: ./server
+        run: npm test
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to production
+        run: |
+          echo "Deploying to production server..."
+          # Add your deployment commands here, e.g., SSH into server and pull latest code
+          # ssh user@your-server "cd /path/to/your/app && git pull && npm install && npm run build"
