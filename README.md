@@ -264,42 +264,14 @@ REACT_APP_ENV=development
 
 ### Authentication Endpoints
 
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---------------|
-| POST | `/api/auth/register` | Register new user | No |
-| POST | `/api/auth/login` | Login user | No |
-| POST | `/api/auth/logout` | Logout user | Yes |
-| POST | `/api/auth/refresh` | Refresh access token | Yes |
-| POST | `/api/auth/forgot-password` | Request password reset | No |
-| POST | `/api/auth/reset-password/:token` | Reset password | No |
-| GET | `/api/auth/me` | Get current user | Yes |
-
 ### Subscription Endpoints
 
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---------------|
-| GET | `/api/subscriptions/plans` | Get all plans | No |
-| POST | `/api/subscriptions/create` | Create subscription | Yes |
-| GET | `/api/subscriptions/status` | Get user subscription | Yes |
-| PUT | `/api/subscriptions/upgrade` | Upgrade subscription | Yes |
-| DELETE | `/api/subscriptions/cancel` | Cancel subscription | Yes |
 
 ### Analytics Endpoints
 
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---------------|
-| GET | `/api/analytics/users` | User statistics | Admin |
-| GET | `/api/analytics/revenue` | Revenue data | Admin |
-| GET | `/api/analytics/activity` | User activity | Admin |
 
 ### Admin Endpoints
 
-| Method | Endpoint | Description | Auth Required |
-|--------|----------|-------------|---------------|
-| GET | `/api/admin/users` | List all users | Admin |
-| PUT | `/api/admin/users/:id/role` | Update user role | Admin |
-| PUT | `/api/admin/users/:id/status` | Activate/deactivate user | Admin |
-| GET | `/api/admin/stats` | System statistics | Admin |
 
 
 ## 🚀 Deployment
